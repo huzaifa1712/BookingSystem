@@ -13,6 +13,7 @@ import java.text.SimpleDateFormat;
 public class Booking {
     private String name;
     private Date date;
+    private String test;
     
     public Booking(String name, Date date){
         this.name = name;

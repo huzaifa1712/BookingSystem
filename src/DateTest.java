@@ -26,6 +26,7 @@ public class DateTest {
             System.out.println(date.compareTo(now));
         } catch (ParseException ex) {
             Logger.getLogger(DateTest.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("hello");
         }
         
         
