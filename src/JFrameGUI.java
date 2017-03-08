@@ -37,9 +37,9 @@ SimpleDateFormat format = new SimpleDateFormat("dd/mm/yy");
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        day_Box = new javax.swing.JComboBox<>();
-        time_Box = new javax.swing.JComboBox<>();
-        monthBox = new javax.swing.JComboBox<>();
+        dayBox = new javax.swing.JComboBox<>();
+        timeBox = new javax.swing.JComboBox<>();
+        mthBox = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
         name_Box = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
@@ -64,11 +64,11 @@ SimpleDateFormat format = new SimpleDateFormat("dd/mm/yy");
 
         jLabel3.setText("Time:");
 
-        day_Box.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", " " }));
+        dayBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", " " }));
 
-        time_Box.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3:00", "4:30", " " }));
+        timeBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3:00", "4:30", " " }));
 
-        monthBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Jan ", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", " " }));
+        mthBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Jan ", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", " " }));
 
         jLabel4.setText("Name:");
 
@@ -114,15 +114,15 @@ SimpleDateFormat format = new SimpleDateFormat("dd/mm/yy");
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(73, 73, 73)
-                        .addComponent(day_Box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(dayBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(73, 73, 73)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(monthBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(time_Box, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(mthBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(timeBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(name_Box)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -137,15 +137,15 @@ SimpleDateFormat format = new SimpleDateFormat("dd/mm/yy");
                 .addGap(13, 13, 13)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(day_Box, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(dayBox, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(monthBox, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(mthBox, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(time_Box, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(timeBox, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
@@ -215,7 +215,12 @@ SimpleDateFormat format = new SimpleDateFormat("dd/mm/yy");
 
     private void add_BtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_BtnActionPerformed
         // TODO add your handling code here:
+        System.out.println(dayBox.getSelectedItem().toString());
+        System.out.println(mthBox.getSelectedItem().toString());
+        System.out.println(timeBox.getSelectedItem().toString());
         
+        
+                
         
     }//GEN-LAST:event_add_BtnActionPerformed
 
@@ -257,7 +262,7 @@ SimpleDateFormat format = new SimpleDateFormat("dd/mm/yy");
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton add_Btn;
     private javax.swing.JLabel currentBking;
-    private javax.swing.JComboBox<String> day_Box;
+    private javax.swing.JComboBox<String> dayBox;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -269,8 +274,8 @@ SimpleDateFormat format = new SimpleDateFormat("dd/mm/yy");
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
-    private javax.swing.JComboBox<String> monthBox;
+    private javax.swing.JComboBox<String> mthBox;
     private javax.swing.JTextField name_Box;
-    private javax.swing.JComboBox<String> time_Box;
+    private javax.swing.JComboBox<String> timeBox;
     // End of variables declaration//GEN-END:variables
 }

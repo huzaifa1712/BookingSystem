@@ -13,7 +13,7 @@ import java.text.SimpleDateFormat;
 public class Booking {
     private String name;
     private Date date;
-    private String test;
+    private SimpleDateFormat format = new SimpleDateFormat("dd/mm/yy");
     
     public Booking(String name, Date date){
         this.name = name;
@@ -28,6 +28,8 @@ public class Booking {
         return name;
     }
     
+    //method to convert current selections into Date object
+    public Date toDate()
     
     //returns true if bookings are same, false if bookings are not same
     
