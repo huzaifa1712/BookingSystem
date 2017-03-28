@@ -63,8 +63,7 @@ Mail mail;
         timerForBooking.start();
         
         listModel = new DefaultComboBoxModel();
-        Booking initialBkng = sql.getCurrentBooking();
-        nameLabel.setText(initialBkng.getName()); //set booking message to returned msg
+        nameLabel.setText(sql.getCurrentBooking()[0]); //set booking message to returned msg
         
         Calendar now = Calendar.getInstance();
         String date = formatDateWithTime.format(now.getTime());
@@ -120,10 +119,10 @@ Mail mail;
             
             
             //now text
-            Booking now = sql.getCurrentBooking();
+            BookingDisplay now = new BookingDisplay(sql.getCurrentBooking()[0],Boolean.getBoolean(sql.getCurrentBooking()[1]),sql.getCurrentBooking()[2],sql.getCurrentBooking()[3]);
             
             System.out.println("Now name = " + now.getName());
-            System.out.println("Now date = " + now.getDateString());
+            System.out.println("Now date = " + now.getDate());
             //System.out.println("Now DC = " + now.isThereBookingNow());
             System.out.println("------------------------------");
             
@@ -132,11 +131,11 @@ Mail mail;
 
                 @Override
                 public void run() {
-                    if((prevDate.trim().equals("none") && !(now.getDateString().trim().equals("none"))) || ((!prevDate.trim().equals("none") && !now.getDateString().trim().equals("none")) && (!prevDate.trim().equals(now.getDateString().trim()))) ){
+                    if((prevDate.trim().equals("none") && !(now.getDate().trim().equals("none"))) || ((!prevDate.trim().equals("none") && !now.getDate().trim().equals("none")) && (!prevDate.trim().equals(now.getDate().trim()))) ){
                         
                         
-                        String recipient = now.getEmail();
-                        String subject = "Reminder: Your booking on " + now.getDateString() + " for the room!";
+                        String recipient = sql.getCurrentBooking()[4];
+                        String subject = "Reminder: Your booking on " + now.getDate() + " for the room!";
                         String body = "Dear " + now.getName() + ", " + "\n" + "\n\t" + "You booked the room for " + bookingDurationInMinutes 
                                 + " minutes. You may now come use it!";
                         
@@ -154,7 +153,7 @@ Mail mail;
         
             thread.start();
             //if no new bookings
-            if(!now.getDateString().equals("none")){
+            if(!now.getDate().equals("none")){
                 //if already set to something
                 if(!(prevDate.trim().equals("none"))){
                     //min duration for booking
@@ -187,7 +186,7 @@ Mail mail;
                 
                 else{ //if set to none  right now this block runs
                     nameLabel.setText(now.getName().trim());
-                    dateLabel.setText(now.getDateString().trim());
+                    dateLabel.setText(now.getDate().trim());
                 }
             }
             
@@ -200,9 +199,9 @@ Mail mail;
                         Calendar prevDateAsCal = Calendar.getInstance();
                         prevDateAsCal.setTime(prevDateObj);
                         
-                        if(Booking.isBookingNowAfterPrev(prevDateAsCal, now.getDateObject(), bookingDurationInMinutes)){
+                        if(Booking.isBookingNowAfterPrev(prevDateAsCal, now.dateToCalendar(), bookingDurationInMinutes)){
                             nameLabel.setText(now.getName().trim());
-                            dateLabel.setText(now.getDateString().trim());
+                            dateLabel.setText(now.getDate().trim());
                         
                         }
                         
@@ -220,7 +219,7 @@ Mail mail;
                 
                 else{
                     nameLabel.setText(now.getName().trim());
-                    dateLabel.setText(now.getDateString().trim());
+                    dateLabel.setText(now.getDate().trim());
                 }
             }
             

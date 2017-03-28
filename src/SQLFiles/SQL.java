@@ -254,9 +254,9 @@ public class SQL {
         conn.close();
     }
     
-    public Booking getCurrentBooking(){
+    public String[] getCurrentBooking(){
        
-        Booking currentBooking = new Booking();
+        String currentBooking = "";
         boolean isThereBookingNow = false;
         String nameBkng = "none";
         String dateBkng = "none";
@@ -283,7 +283,7 @@ public class SQL {
             
             
             if(!rs.isBeforeFirst()){
-                //currentBooking = "none";
+                currentBooking = "none";
                 //System.out.println("check empty");
             }
             
@@ -305,13 +305,8 @@ public class SQL {
                 ResultSet rsEmail = stmt.executeQuery(queryForEmail);
                 emailBkng = readResultSet(rsEmail);
                
-                currentBooking.setName(nameBkng);
-                try {
-                    currentBooking.setDateFromString(dateBkng);
-                } catch (ParseException ex) {
-                    Logger.getLogger(SQL.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                currentBooking.setEmail(emailBkng);
+                
+                currentBooking = nameBkng + " " + dateBkng;
                // System.out.println(currentBooking);
                 
                 
@@ -326,15 +321,14 @@ public class SQL {
             Logger.getLogger(SQL.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        /*returnArray[0] = currentBooking; //first index has message to send - either no bookings or name + date
+        returnArray[0] = currentBooking; //first index has message to send - either no bookings or name + date
         returnArray[1] = String.valueOf(isThereBookingNow);   //second index has displayCode  to indicate whether no bookings or name + date
         returnArray[2] = nameBkng;                      // third index has just name
         returnArray[3] = dateBkng;                      //fourth has just date
         returnArray[4] = emailBkng;                     //fifth has email
         
-        return returnArray;*/
+        return returnArray;
         
-        return currentBooking;
         
     }
         
